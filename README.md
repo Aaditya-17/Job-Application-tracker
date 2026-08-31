@@ -166,12 +166,12 @@ Job-Application-tracker/
 │   │   │       ├── repository/          # Data Access Layer
 │   │   │       ├── entity/              # JPA Entities
 │   │   │       ├── dto/                 # Data Transfer Objects
-│   │   │       ├── security/            # JWT & Security Config
-│   │   │       ├── exception/           # Custom Exceptions
-│   │   │       └── util/                # Utility Classes
+│   │   │       ├── Config/            # JWT & Security Config
+│   │   │       └── exception/           # Custom Exceptions
+│   │   │      
 │   │   └── resources/
-│   │       ├── application.properties   # Configuration
-│   │       └── db/
+│   │       └── application.properties   # Configuration
+│   │      
 │   └── test/                            # Test Classes
 ├── pom.xml                              # Maven Configuration
 ├── mvnw                                 # Maven Wrapper (Linux/macOS)
@@ -282,38 +282,6 @@ Authorization: Bearer <token>
 Response: 204 No Content
 ```
 
-## 🗄️ Database Schema
-
-### Users Table
-```sql
-CREATE TABLE users (
-  id BIGINT PRIMARY KEY AUTO_INCREMENT,
-  email VARCHAR(255) UNIQUE NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  first_name VARCHAR(100),
-  last_name VARCHAR(100),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-```
-
-### Applications Table
-```sql
-CREATE TABLE applications (
-  id BIGINT PRIMARY KEY AUTO_INCREMENT,
-  user_id BIGINT NOT NULL,
-  company VARCHAR(255) NOT NULL,
-  position VARCHAR(255) NOT NULL,
-  status VARCHAR(50),
-  applied_date DATE,
-  salary DECIMAL(10, 2),
-  job_description LONGTEXT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-);
-```
-
 ## 🔐 Authentication
 
 This project uses JWT (JSON Web Tokens) for authentication:
@@ -326,37 +294,3 @@ This project uses JWT (JSON Web Tokens) for authentication:
    ```
 
 All protected endpoints require a valid JWT token in the request header.
-
-## 🤝 Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is open source and available under the MIT License. See the LICENSE file for more details.
-
-## 📧 Contact
-
-For questions or support, please reach out to:
-- **Developer**: Aaditya-17
-- **Repository**: [Job-Application-tracker](https://github.com/Aaditya-17/Job-Application-tracker)
-
-## 🗺️ Roadmap
-
-- [ ] Add email notifications for application updates
-- [ ] Implement resume management system
-- [ ] Add interview preparation resources
-- [ ] Create salary comparison feature
-- [ ] Add analytics and statistics dashboard
-- [ ] Implement bulk import from job sites
-- [ ] Add mobile application
-
----
-
-**Happy Job Hunting! 🎯**
