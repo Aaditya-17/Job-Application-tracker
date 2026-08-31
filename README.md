@@ -12,10 +12,7 @@ A comprehensive Spring Boot application designed to help users track and manage 
 - [Running the Application](#running-the-application)
 - [Project Structure](#project-structure)
 - [API Documentation](#api-documentation)
-- [Database Schema](#database-schema)
 - [Authentication](#authentication)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## ✨ Features
 
